@@ -147,13 +147,7 @@ function corrupt_data_years(string $str) : string
         $replacements[] = rand(1970, 2017);
     }
 
-    $years_to_replace = [];
-    $num2 = count($match[0]);
-    for ($i = 0; $i < $num2; $i++) {
-        $years_to_replace[] = '/' . $match[0][$i] . '/';
-    }
-
-    return preg_replace($years_to_replace, $replacements, $str);
+    return str_replace($match[0], $replacements, $str);
 }
 
 /**
